@@ -6,9 +6,9 @@ Documentation=man:apachectl(8)
 
 [Service]
 Type=notify
-EnvironmentFile=/etc/sysconfig/httpd
-ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
-ExecReload=/usr/sbin/httpd $OPTIONS -k graceful
+EnvironmentFile=/home/sbalinen/jenkins-httpd/etc/sysconfig/httpd
+ExecStart=/home/sbalinen/jenkins-httpd/usr/sbin/httpd $OPTIONS -DFOREGROUND
+ExecReload=/home/sbalinen/jenkins-httpd/usr/sbin/httpd $OPTIONS -k graceful
 ExecStop=/bin/kill -WINCH ${MAINPID}
 # We want systemd to give httpd some time to finish gracefully, but still want
 # it to kill httpd after TimeoutStopSec if something went wrong during the
