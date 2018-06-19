@@ -12,7 +12,7 @@ steps {
 stage 'Deploy'
 steps {
     input 'Deploy application?'
-    sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkinsdeploy_test', transfers: [sshTransfer(excludes: '', execCommand: '/home/sbalinen/jenkins-httpd/usr/sbin/httpd -f /home/sbalinen/jenkins-httpd/etc/httpd/conf/httpd.conf -p /home/sbalinen/jenkins-httpd/run/httpd/httpd.pid -k restart', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'jenkins-httpd/var/', remoteDirectorySDF: false, removePrefix: 'var', sourceFiles: 'var/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])   
+    sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkinsdeploy_test', transfers: [sshTransfer(excludes: '', execCommand: '/home/sbalinen/jenkins-httpd/usr/sbin/httpd -f /home/sbalinen/jenkins-httpd/etc/httpd/conf/httpd.conf -k restart', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'jenkins-httpd/var/', remoteDirectorySDF: false, removePrefix: 'var', sourceFiles: 'var/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])   
 	notify(Web server started)
 }
 }
